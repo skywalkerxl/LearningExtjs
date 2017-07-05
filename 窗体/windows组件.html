@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Ext/adapter/ext/ext-base.js"></script>
+    <script src="../Ext/ext-all.js"></script>
+    <link rel="stylesheet" href="../Ext/resources/css/ext-all.css">
+</head>
+<body>
+
+<script>
+    Ext.onReady(function () {
+        var win = new Ext.Window({
+            title : '窗口', //窗体的标题
+            width : 476,   //宽
+            height : 374,  //高
+            html : '<div>这里是窗体内容</div>',  //窗体内部显示的html内容
+            resizable : true, //是否可以调整窗体大小
+            modal : true, //是否为“模态窗体”，true为是，意思即打开这个窗体以后就不能对其他窗体在进行操
+            closable : true, //是否显示关闭按钮
+            minimizable : true //是否可以最小化
+        });
+        win.show();//打开窗体
+        /*
+        *     show()：打开窗体
+        *     hide(): 隐藏窗体
+        *     close(): 关闭窗体
+        *
+        * */
+    })
+</script>
+</body>
+</html>
