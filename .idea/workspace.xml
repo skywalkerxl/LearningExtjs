@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e4b0e78-0a58-41e2-bd46-186e6fc44861" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/checkcode.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/login.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/文本框/text field.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/登录窗体/Login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/表单/FormPanel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/登录窗体/Login.html" afterPath="$PROJECT_DIR$/登录窗体/Login.html" />
     </list>
     <ignored path="LearningExtjs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,8 +68,8 @@
       <file leaf-file-name="Login.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/登录窗体/Login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+            <state relative-caret-position="234">
+              <caret line="74" column="48" selection-start-line="74" selection-start-column="48" selection-end-line="74" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -327,12 +322,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1499217294617</updated>
-      <workItem from="1499217296107" duration="10567000" />
+      <workItem from="1499217296107" duration="13984000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10567000" />
+    <option name="totallyTimeSpent" value="13984000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
@@ -411,8 +406,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/登录窗体/Login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+        <state relative-caret-position="234">
+          <caret line="74" column="48" selection-start-line="74" selection-start-column="48" selection-end-line="74" selection-end-column="48" />
           <folding />
         </state>
       </provider>

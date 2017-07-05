@@ -7,11 +7,17 @@
     <script src="../Ext/ext-all.js"></script>
     <link rel="stylesheet" href="../Ext/resources/css/ext-all.css">
 </head>
+<style>
+    .loginicon {  }
+</style>
 <body>
 <script>
+    /* 重写文本框 start */
+
+    /* 重写文本框 end */
     Ext.onReady(function () {
         Ext.QuickTips.init();
-        Ext.form.Field.prototype.msgTarget = 'side';
+        Ext.form.Field.prototype.msgTarget = 'qtip';
         //表单
         var form = new Ext.form.FormPanel({
             url : '******',
@@ -24,9 +30,9 @@
         });
         //提交按钮处理方法
         var btnsubmitclick = function () {
-            /*if (form.getForm().isValid()){
+            if (form.getForm().isValid()){
                 Ext.Msg.alert('提示','登录成功');
-            }*/
+            }
         }
         //重置按钮“点击”时处理办法
         var btnresetclick  = function () {
@@ -61,8 +67,37 @@
             blankText : '请输入密码',
             maxLengthText : '密码不能超过20个字符'
         });
+        //----------------------数字字段开始------------------//
+        //创建一个新的numberfield 数字文本框对象
+        var numberfield = new Ext.form.NumberField({
+            fieldLabel : '身高',
+            width : 80,
+            decimalPrecision: 1, //设置小数点位数，超过的系统自动截断
+            minValue : 0.01,
+            maxValue : 200,
+            unitText : 'cm',
+            allowBlank : false,
+            blankText : '请输入身高'
+        });
+        //----------------------数字字段结束------------------//
+        //----------------------隐藏域字段开始------------------//
+        //一般用来保存不希望用户直接看到的参数，并发送到服务器，例如:用户ID等
+        var hiddenfield = new Ext.form.Hidden({
+            name : 'userid',
+            value : '1'
+        });
+        //----------------------隐藏域字段结束------------------//
+        //----------------------日期字段开始------------------//
+        var datefield = new Ext.form.DateField({
+            fieldLabel : '出生日期',
+            format : 'y-m-d', //日期格式
+            editable : false, //不可编辑
+            allowBlank : false,
+            blankText : '请选择日期'
+        });
+        //----------------------日期字段结束------------------//
         //验证码input
-        var txtCheckCode = new Ext.form.TextField({
+        /*var txtCheckCode = new Ext.form.TextField({
             width : 76,
             allowBlank : false,
             maxLength : 4,
@@ -70,30 +105,24 @@
             fieldLabel : '验证码',
             blankText : '请输入验证码',
             maxLengthText : '验证码不能超过4个字符'
-        })
+        })*/
         //表单
-        var form = new Ext.form.FormPanel({
-            url : '******',
-            labelAlign : 'right',
-            labelWidth : 45,
-            frame : true,
-            cls : 'loginform',
-            buttonAlign : 'center',
-            bodyStyle : 'padding: 6px 0 0 15px ',
-            items : [txtUsername, txtPassword, txtCheckCode],
+        form = new Ext.form.FormPanel({
+            items : [txtUsername, txtPassword, numberfield, hiddenfield, datefield],
             buttons : [btnsubmit, btnreset]
         });
         var win = new Ext.Window({
             title : '用户登录',
             iconCls : 'loginicon',
             plain : true,
-            width : 276,
-            height : 174,
+            width : 476,
+            height : 374,
             resizable : false,
             shadow : true,
             modal : true,
             closable : false,
             animaCollapse : true,
+            buttonAlign : 'center',
             items : form
         });
         win.show();
