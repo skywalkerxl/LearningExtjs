@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Ext/adapter/ext/ext-base.js"></script>
+    <script src="../Ext/ext-all.js"></script>
+    <link rel="stylesheet" href="../Ext/resources/css/ext-all.css">
+</head>
+<body>
+<script>
+    Ext.onReady(function () {
+        Ext.QuickTips.init();
+        Ext.form.Field.prototype.msgTarget = 'side';
+        //表单
+        var form = new Ext.form.FormPanel({
+            url : '******',
+            labelAlign : 'right',
+            labelWidth : 45,
+            frame : true,
+            cls : 'loginform',
+            buttonAlign : 'center',
+            bodyStyle : 'padding: 6px 0 0 15px '
+        });
+        //提交按钮处理方法
+        var btnsubmitclick = function () {
+            /*if (form.getForm().isValid()){
+                Ext.Msg.alert('提示','登录成功');
+            }*/
+        }
+        //重置按钮“点击”时处理办法
+        var btnresetclick  = function () {
+            form.getForm().reset();
+        }
+        //提交按钮
+        var btnsubmit =  new Ext.Button({
+            text : '提 交',
+            handler : btnsubmitclick
+        });
+        var btnreset = new Ext.Button({
+            text : '重 置',
+            handler : btnresetclick
+        });
+        //用户名input
+        var txtUsername = new Ext.form.TextField({
+            width : 140,
+            allowBlank : false,
+            maxLength : 20,
+            name : 'username',
+            fieldLabel : '用户名',
+            blankText : '请输入用户名',
+            maxLengthText : '用户名不能超过20个字符'
+        });
+        //密码Input
+        var txtPassword = new Ext.form.TextField({
+            width : 140,
+            allowBlank : false,
+            maxLength : 20,
+            name : 'password',
+            fieldLabel : '密码',
+            blankText : '请输入密码',
+            maxLengthText : '密码不能超过20个字符'
+        });
+        //验证码input
+        var txtCheckCode = new Ext.form.TextField({
+            width : 76,
+            allowBlank : false,
+            maxLength : 4,
+            id : 'checkcode',
+            fieldLabel : '验证码',
+            blankText : '请输入验证码',
+            maxLengthText : '验证码不能超过4个字符'
+        })
+        //表单
+        var form = new Ext.form.FormPanel({
+            url : '******',
+            labelAlign : 'right',
+            labelWidth : 45,
+            frame : true,
+            cls : 'loginform',
+            buttonAlign : 'center',
+            bodyStyle : 'padding: 6px 0 0 15px ',
+            items : [txtUsername, txtPassword, txtCheckCode],
+            buttons : [btnsubmit, btnreset]
+        });
+        var win = new Ext.Window({
+            title : '用户登录',
+            iconCls : 'loginicon',
+            plain : true,
+            width : 276,
+            height : 174,
+            resizable : false,
+            shadow : true,
+            modal : true,
+            closable : false,
+            animaCollapse : true,
+            items : form
+        });
+        win.show();
+        var checkcode = Ext.getDom('checkcode');
+        var checkimage = Ext.get(checkcode.parentNode);
+        checkimage.createChild({
+            tag : 'img',
+            src : '../images/checkcode.gif',
+            align : 'absbottom',
+            style : 'padding-left : 23px; cursor : pointer'
+        });
+    });
+</script>
+</body>
+</html>

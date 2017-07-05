@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Ext/adapter/ext/ext-base.js"></script>
+    <script src="../Ext/ext-all.js"></script>
+    <link rel="stylesheet" href="../Ext/resources/css/ext-all.css">
+</head>
+<body>
+<script>
+    Ext.onReady(function () {
+        var form = new  Ext.form.FormPanel({
+            frame : true,
+            title : '表单标题',
+            style : 'margin : 10px',
+            html : '<div style="padding: 10px">这里是表单内容</div>'
+        });
+
+        var win = new Ext.Window({
+            title : '窗口',
+            width: 476,
+            height : 374,
+            html: '<div>这里是窗体内容</div>',
+            resizable : true,
+            modal: true,
+            maximizable : true,
+            minimizable : true,
+            items : form, //在窗体中新添一个表单
+            closable : true
+        });
+        win.show();
+    })
+</script>
+</body>
+</html>

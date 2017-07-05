@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Ext/adapter/ext/ext-base.js"></script>
+    <script src="../Ext/ext-all.js"></script>
+    <link rel="stylesheet" href="../Ext/resources/css/ext-all.css">
+</head>
+<body>
+<script>
+    Ext.onReady(function () {
+        //初始化标签中的Qtip属性
+        Ext.QuickTips.init();
+        Ext.form.Field.prototype.msgTarget = 'side';
+        /**
+         *
+         * TextField的提示方式：
+         * 参数可以为 'qtip','title','under','side'
+         *
+         */
+        //用户名input
+        var txtUsername = new Ext.form.TextField({
+            width : 140,
+            allowBlank : false,
+            maxLength : 20,
+            name : 'username',
+            fieldLabel : '用户名称',
+            blankText : '请输入用户名',
+            maxLengthText : '用户名不能超过20个字符'
+        });
+        //密码input
+        var txtPassword = new Ext.form.TextField({
+            width : 140,
+            allowBlank : false,
+            maxLength : 20,
+            name: 'password',
+            fieldLabel : '用户密码',
+            blankText : '请输入密码',
+            maxLengthText : '密码不能超过20个字符'
+        });
+        //表单
+        var form = new Ext.form.FormPanel({
+            frame : true,
+            title : '表单标题',
+            style : 'margin : 10px',
+            html : '<div>这里是表单内容</div>',
+            items : [txtUsername, txtPassword]
+        });
+        //窗体
+        var win = new Ext.Window({
+            title : '窗体',
+            width : 476,
+            height : 374,
+            html : '<div>这里是窗体内容</div>',
+            modal : true,
+            resizable : true,
+            closable : true,
+            maximizable : true,
+            minimizable : true,
+            items : form
+        });
+        win.show();
+    })
+</script>
+</body>
+</html>
