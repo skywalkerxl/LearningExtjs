@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+    <script src="../ext-4.2.1/bootstrap.js"></script>
+    <link rel="stylesheet" href="../ext-4.2.1/resources/css/ext-all-neptune.css">
+</head>
+<body>
+<script>
+    /*
+    * Ext.apply方法用于将第二个参数的属性和方法应用到第一个参数中
+    *
+    *
+    *
+    * */
+    Ext.apply(Ext.data.validations, {
+        ageMesssage : '必须在0到150之间',
+        age : function (config, value) {
+            if( value == undefined || value == null ){
+                return false;
+            }
+            if( value < 0 || value > 150 ){
+                return false;
+            }
+
+            return true;
+        }
+    })
+</script>
+</body>
+</html>

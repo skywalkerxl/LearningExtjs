@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../ext-4.2.1/bootstrap.js"></script>
+    <link rel="stylesheet" href="../ext-4.2.1/resources/css/ext-all-neptune.css">
+    <script src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+</head>
+<body>
+<script>
+    //-- 在js中自定义类是这样的 --//
+    var Person = function (name, age) {
+        this.Name = "";
+        this.Age = 0;
+        this.Say = function (msg) {
+            alert(this.Name + ' Say : ' + msg);
+        };
+        //init 相当于构造函数
+        this.init = function (name, age) {
+            this.Name = name;
+            this.Age = age;
+        };
+        this.init(name, age);
+    };
+
+    var TOM = new Person('TOM', 20);
+    TOM.Say('Hello');
+
+    //---- ExtJS中自定义类 ----//
+    Ext.define('Woman',{
+        Name : '',
+        Age : 0,
+        Say : function (msg) {
+            Ext.Msg.alert(this.Name + ' Say : ', msg);
+        },
+        constructor : function (name, age) {
+            this.Name = name;
+            this.Age = age;
+        }
+    });
+
+    //---- ExtJS中类的继承 ----//
+    Ext.define('Developer',{
+        extend : 'Woman',
+        Coding : function (code) {
+            Ext.Msg.alert(this.Name + ' 正在编码 : ', code);
+        },
+        constructor : function () {
+            this.callParent(arguments); //此处调用父类的构造函数
+        }
+    });
+
+    Ext.onReady(function () {
+        var Jerry = new Woman('Jerry', 26);
+        Jerry.Say('Hi');
+
+        var Bill = new Developer('Bill', 28);
+        Bill.Coding('PHP是世界上最好的语言');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../ext-4.2.1/locale/ext-lang-zh_CN.js"></script>
+    <script src="../ext-4.2.1/bootstrap.js"></script>
+    <link rel="stylesheet" href="../ext-4.2.1/resources/css/ext-all-neptune.css">
+</head>
+<body>
+<script>
+    Ext.define('MyApp.User', {
+        extend : 'Ext.data.Model',
+        fields : [
+            { name : 'name', type : 'string' },
+            { name : 'age', type : 'int' },
+            { name : 'phone', type : 'string' },
+            {
+                name : 'birthday',
+                type : 'date',
+                convert : function (value, record) {
+                    if( Ext.isDate(value) ){
+                        return value;
+                    }else if( Ext.isString(value) ){
+                        return Ext.Date.parse(value, 'Y-m-d');
+                    }
+                }
+            }
+        ],
+        validations : [
+            { field : 'phone', type : 'length', min : 8, max : 15 }
+        ]
+    });
+
+    Ext.onReady(function () {
+        var Tom = Ext.create("MyApp.User", {
+            name : 'Tom',
+            age : '21',
+            phone : '313335667891234444',
+            birthday : '1998-08-08'
+        });
+
+        var errors = Tom.validate();
+        var errorMsg = [];
+        if( !errors.isValid() ){
+            errors.each(function (error) {
+                errorMsg.push(error.field + "    " + error.message);
+            });
+            Ext.Msg.alert("错误", errorMsg.join('<br/>') );
+        }
+    })
+</script>
+</body>
+</html>
